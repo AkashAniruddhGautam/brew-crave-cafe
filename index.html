@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f6f3ed">
+  <title>Brew &amp; Crave Cafe · Billing</title>
+  <link rel="stylesheet" href="/app.css">
+</head>
+<body>
+  <section class="auth-screen" id="auth-screen">
+    <div class="auth-card" id="login-card" hidden>
+      <div class="auth-brand"><div class="brand-mark" aria-hidden="true">☕</div><div><div class="brand-name">Brew &amp; Crave</div><div class="brand-caption">Cafe</div></div></div>
+      <h1>Welcome back</h1><p class="auth-copy">Sign in with your cafe account to open billing.</p>
+      <form id="login-form">
+        <label class="field-label" for="login-username">Username</label><input class="auth-input" id="login-username" name="username" autocomplete="username" required maxlength="32">
+        <label class="field-label" for="login-password">Password</label><input class="auth-input" id="login-password" name="password" type="password" autocomplete="current-password" required maxlength="256">
+        <p class="auth-error" id="login-error" aria-live="polite"></p><button class="auth-submit" type="submit">Sign in</button>
+      </form>
+    </div>
+    <div class="auth-card" id="setup-card" hidden>
+      <div class="auth-brand"><div class="brand-mark" aria-hidden="true">☕</div><div><div class="brand-name">Brew &amp; Crave</div><div class="brand-caption">Cafe</div></div></div>
+      <h1>Set up your cafe</h1><p class="auth-copy">Create the owner account to get started. Keep this password private.</p>
+      <form id="setup-form">
+        <label class="field-label" for="setup-username">Owner username</label><input class="auth-input" id="setup-username" name="username" autocomplete="username" required minlength="3" maxlength="32" pattern="[A-Za-z0-9][A-Za-z0-9._\x2d]{2,31}">
+        <label class="field-label" for="setup-password">Owner password</label><input class="auth-input" id="setup-password" name="password" type="password" autocomplete="new-password" required minlength="12" maxlength="256">
+        <p class="auth-hint">Use at least 12 characters. You'll use it to create staff accounts.</p>
+        <p class="auth-error" id="setup-error" aria-live="polite"></p><button class="auth-submit" type="submit">Create owner account</button>
+      </form>
+    </div>
+  </section>
+  <div class="app" id="app-shell" hidden>
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">☕</div>
+        <div><div class="brand-name">Brew &amp; Crave</div><div class="brand-caption">Cafe</div></div>
+      </div>
+      <div>
+        <p class="nav-label">Workspace</p>
+        <nav class="nav-list" aria-label="Main navigation">
+          <button class="nav-button active" id="nav-pos" data-view="pos"><span class="nav-icon">▦</span><span>New order</span></button>
+          <button class="nav-button" id="nav-history" data-view="history"><span class="nav-icon">◷</span><span>Order history</span></button>
+          <button class="nav-button" id="nav-admin" data-view="admin" hidden><span class="nav-icon">⚙</span><span>Admin panel</span></button>
+        </nav>
+      </div>
+      <div class="sidebar-bottom">
+        <div class="open-card"><div class="open-card-top"><span class="live-dot" id="cafe-status-dot"></span><span id="cafe-status">Cafe is open</span></div><div class="open-hours" id="open-hours">Today · 9:00 AM – 10:00 PM</div></div>
+        <div class="user-row"><div class="avatar" id="user-avatar">LB</div><div><div class="user-name" id="user-name">Cafe account</div><div class="user-role" id="user-role">Staff</div></div></div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div><div class="eyebrow"><span id="today-weekday"></span>, <span id="today-date"></span></div><h1 id="page-title">Let's take an order</h1></div>
+        <div class="top-actions"><div class="date-chip"><span>◷</span><span id="clock"></span></div><button class="icon-button" aria-label="Notifications">🔔</button><button class="logout-button" id="logout-button">Sign out</button></div>
+      </header>
+
+      <section class="workspace" id="pos-view">
+        <div class="menu-panel">
+          <div class="menu-heading">
+            <div><h2 class="section-title">Our menu</h2><div class="menu-count" id="menu-count"></div></div>
+            <label class="search-wrap"><span class="search-icon">⌕</span><input class="search" id="search" type="search" placeholder="Search menu..." aria-label="Search menu"></label>
+          </div>
+          <div class="categories" id="categories" aria-label="Filter menu category"></div>
+          <div class="product-grid" id="product-grid"></div>
+        </div>
+        <aside class="order-panel" aria-label="Current order">
+          <div class="order-header">
+            <div><h2 class="section-title">Current order</h2><div class="order-subtitle"><span id="order-number"></span> · <span id="order-clock"></span></div></div>
+            <button class="clear-button" id="clear-order">Clear all</button>
+          </div>
+          <div class="order-mode" aria-label="Order type">
+            <button class="mode-button active" data-mode="Dine in">Dine in</button>
+            <button class="mode-button" data-mode="Takeaway">Takeaway</button>
+          </div>
+          <div class="items-list" id="cart-items"></div>
+          <div class="summary">
+            <div class="summary-line"><span>Subtotal</span><strong id="subtotal">₹0.00</strong></div>
+            <div class="summary-line"><span>GST <span>(5%)</span></span><strong id="tax">₹0.00</strong></div>
+            <div class="summary-line total-line"><span>Total</span><strong id="total">₹0.00</strong></div>
+            <div class="payment-label">Payment method</div>
+            <div class="payment-options" aria-label="Payment method">
+              <button class="payment-button active" data-payment="Cash">Cash</button>
+              <button class="payment-button" data-payment="UPI">UPI</button>
+              <button class="payment-button" data-payment="Card">Card</button>
+            </div>
+            <button class="charge-button" id="charge-button" disabled>Complete bill · ₹0.00</button>
+            <p class="secure-note">Payment is recorded manually · no payment gateway</p>
+          </div>
+        </aside>
+      </section>
+
+      <section class="history-panel" id="history-view" hidden>
+        <div class="history-heading"><div><h2 class="section-title">Order history</h2><div class="menu-count">Your recent cafe orders</div></div><button class="category" id="back-to-pos">＋ New order</button></div>
+        <table class="history-table">
+          <thead><tr><th>ORDER</th><th>TIME</th><th>TYPE</th><th>PAYMENT</th><th>STATUS</th><th>TOTAL</th></tr></thead>
+          <tbody id="history-body"></tbody>
+        </table>
+      </section>
+      <section id="admin-view" hidden>
+        <div class="admin-section">
+          <div class="staff-card">
+            <div class="admin-section-heading"><div><h2>Products</h2><p>Add items to the menu, update prices, or hide items that are unavailable.</p></div></div>
+            <div class="admin-table-wrap"><table class="admin-table"><thead><tr><th>PRODUCT</th><th>CATEGORY</th><th>PRICE</th><th>STATUS</th><th>ACTIONS</th></tr></thead><tbody id="products-body"></tbody></table></div>
+          </div>
+        </div>
+        <div class="product-admin-layout admin-section">
+          <div class="staff-card">
+            <div class="admin-section-heading"><div><h2>Owner &amp; staff accounts</h2><p>Only the owner can manage staff access.</p></div></div>
+            <div class="admin-table-wrap"><table class="admin-table"><thead><tr><th>USERNAME</th><th>ROLE</th><th>STATUS</th><th>ACTIONS</th></tr></thead><tbody id="staff-body"></tbody></table></div>
+          </div>
+          <div class="staff-card"><h2 id="product-form-title">Add a product</h2><p class="menu-count">Menu changes apply to new bills. Existing bills keep their original price.</p><form class="product-admin-form" id="product-form">
+            <div class="product-form-grid">
+              <div class="wide"><label class="field-label" for="product-name">Product name</label><input class="auth-input" id="product-name" name="name" required maxlength="60"></div>
+              <div><label class="field-label" for="product-category">Category</label><input class="auth-input" id="product-category" name="category" list="product-categories" required maxlength="32"><datalist id="product-categories"><option value="Coffee"><option value="Cold drinks"><option value="Tea"><option value="Bakery"></datalist></div>
+              <div><label class="field-label" for="product-price">Price (₹)</label><input class="auth-input" id="product-price" name="price" type="number" min="0.01" max="999999.99" step="0.01" required></div>
+              <div><label class="field-label" for="product-emoji">Menu icon</label><input class="auth-input" id="product-emoji" name="emoji" value="🍽️" required maxlength="8"></div>
+              <div><label class="field-label" for="product-art">Card style</label><select class="auth-input" id="product-art" name="art"><option value="coffee">Coffee</option><option value="cold">Cold drink</option><option value="tea">Tea</option><option value="food">Food</option></select></div>
+              <div class="wide"><label class="field-label" for="product-type">Short description</label><input class="auth-input" id="product-type" name="type" value="Made fresh" required maxlength="40"></div>
+            </div>
+            <p class="auth-error" id="product-error" aria-live="polite"></p><div class="form-actions"><button class="auth-submit" id="product-submit" type="submit">Add product</button><button class="secondary-button" id="product-cancel" type="button" hidden>Cancel edit</button></div>
+          </form></div>
+          <div class="staff-card"><h2>Add a staff member</h2><p class="menu-count">Use a separate account for each team member.</p><form class="staff-form" id="staff-form"><label class="field-label" for="staff-username">Username</label><input class="auth-input" id="staff-username" name="username" autocomplete="off" required minlength="3" maxlength="32" pattern="[A-Za-z0-9][A-Za-z0-9._\x2d]{2,31}"><label class="field-label" for="staff-password">Temporary password</label><input class="auth-input" id="staff-password" name="password" type="password" autocomplete="new-password" required minlength="12" maxlength="256"><p class="auth-error" id="staff-error" aria-live="polite"></p><button class="auth-submit" type="submit">Create staff account</button></form></div>
+        </div>
+      </section>
+    </main>
+  </div>
+  <div class="receipt-overlay" id="receipt-overlay" role="dialog" aria-modal="true" aria-label="Payment receipt">
+    <div class="receipt" id="receipt-content"></div>
+  </div>
+  <dialog class="whatsapp-dialog" id="whatsapp-dialog" aria-labelledby="whatsapp-title">
+    <form id="whatsapp-form">
+      <div class="whatsapp-dialog-icon" aria-hidden="true">◉</div>
+      <h2 id="whatsapp-title">Send bill on WhatsApp</h2>
+      <p class="whatsapp-copy">Enter the customer's WhatsApp number. The PDF will download and their chat will open with a ready-to-send message.</p>
+      <label class="field-label" for="whatsapp-number">Customer WhatsApp number</label>
+      <input class="auth-input" id="whatsapp-number" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+91 98765 43210" required maxlength="24">
+      <p class="auth-error" id="whatsapp-error" aria-live="polite"></p>
+      <p class="whatsapp-note">In WhatsApp, attach the downloaded bill PDF and press Send. The browser cannot attach or send files automatically.</p>
+      <div class="whatsapp-actions">
+        <button class="secondary-button" id="whatsapp-cancel" type="button">Cancel</button>
+        <button class="whatsapp-send" id="whatsapp-submit" type="submit">Download PDF &amp; open chat</button>
+      </div>
+    </form>
+  </dialog>
+  <div class="toast" id="toast" role="status"></div>
+
+  <script src="/app.js" defer></script>
+</body>
+</html>
