@@ -3,21 +3,10 @@ command = "mkdir -p dist && cp index.html app.css app.js dist/"
 publish = "dist"
 
 [[redirects]]
-from = "/api/*"
-to = "https://brew-crave-api.onrender.com/api/:splat"
-status = 200
-force = true
-headers = { Host = "brew-crave-api.onrender.com" }
-
-[[redirects]]
-from = "/admin"
-to = "/index.html"
-status = 200
-
-[[redirects]]
 from = "/*"
-to = "/index.html"
-status = 200
+to = "https://brew-crave-api.onrender.com/:splat"
+status = 302
+force = true
 
 [[headers]]
 for = "/*"

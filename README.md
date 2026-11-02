@@ -28,7 +28,7 @@ The browser cannot attach or send a file through a WhatsApp chat link automatica
 ## Deploy the backend to Render
 
 1. Push this project to a GitHub repository.
-2. In Netlify, import the repository first. `netlify.toml` builds and publishes only `index.html`, `app.css` and `app.js` from `dist/`; the Python backend and database are not published as static files. Its API proxy points to `https://brew-crave-api.onrender.com`.
+2. In Netlify, import the repository. The frontend build publishes `index.html`, `app.css` and `app.js` from `dist/`; `netlify.toml` redirects visitors to the Render app so the frontend and API share one origin.
 3. Copy the generated Netlify site origin, such as `https://brew-crave-cafe.netlify.app`.
 4. In Render, choose **New → Blueprint** and connect the same repository. Render reads `render.yaml`, installs `requirements.txt`, and deploys the Flask app with Gunicorn on the free web-service plan. The Blueprint allows the Netlify origin `https://cafebillingsystem.netlify.app`.
 5. Wait for the Render deployment to become live and copy its exact `onrender.com` hostname. Render automatically allows its own hostname. If Netlify reports a host error because its proxy sends a different `Host` header, add the hostname received in that error to a `CAFE_ALLOWED_HOSTS` environment variable in Render (hostname only, comma-separated; no `https://`), then redeploy.
@@ -44,7 +44,7 @@ Render's official [Flask deployment guide](https://render.com/docs/deploy-flask)
 3. Open the deployed HTTPS Netlify site. Sign in/create the owner account there; do not use the Render API URL as the cafe UI.
 4. If the Netlify site hostname changes, update `CAFE_ALLOWED_ORIGINS` in Render to the new exact `https://...netlify.app` origin, then redeploy/restart the Render service.
 
-Netlify's `/api/*` rewrite proxies requests to Render while keeping the browser on the Netlify origin. This lets the secure, HTTP-only session cookie work without cross-site cookie settings or a public CORS policy. The `/admin` rewrite serves the single-page app on direct visits. See Netlify's official [proxy/rewrite guide](https://docs.netlify.com/manage/routing/redirects/rewrites-proxies/) and [build settings guide](https://docs.netlify.com/build/configure-builds/overview/).
+The Netlify site redirects visitors to the Render app. Using the Render app URL directly keeps the session cookie same-origin and avoids cross-site cookie and proxy-routing issues. See Netlify's official [redirect and rewrite guide](https://docs.netlify.com/manage/routing/redirects/rewrites-proxies/) and [build settings guide](https://docs.netlify.com/build/configure-builds/overview/).
 
 ## Data, security and operations
 
