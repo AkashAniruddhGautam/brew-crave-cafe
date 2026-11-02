@@ -67,11 +67,11 @@ ALLOWED_ORIGINS = {
 DEFAULT_MENU = [
     {"id": "menu-hot-coffee-classic", "name": "Hot Coffee (Classic)", "category": "Hot Coffee & Teas", "price_paise": 4900, "emoji": "☕", "art": "coffee", "type": "Hot coffee"},
     {"id": "menu-black-coffee", "name": "Black Coffee", "category": "Hot Coffee & Teas", "price_paise": 3900, "emoji": "☕", "art": "coffee", "type": "Hot coffee"},
-    {"id": "menu-vanilla-coffee", "name": "Vanilla Coffee", "category": "Hot Coffee & Teas", "price_paise": 6900, "emoji": "☕", "art": "coffee", "type": "Hot coffee"},
+    {"id": "menu-vanilla-coffee", "name": "Vanilla Hot Coffee", "category": "Hot Coffee & Teas", "price_paise": 6900, "emoji": "☕", "art": "coffee", "type": "Hot coffee"},
     {"id": "menu-mocha-hot-coffee", "name": "Mocha Hot Coffee", "category": "Hot Coffee & Teas", "price_paise": 6900, "emoji": "☕", "art": "coffee", "type": "Hot coffee"},
     {"id": "menu-hazelnut-hot-coffee", "name": "Hazelnut Hot Coffee", "category": "Hot Coffee & Teas", "price_paise": 6900, "emoji": "☕", "art": "coffee", "type": "Hot coffee"},
     {"id": "menu-hot-chocolate", "name": "Hot Chocolate", "category": "Hot Coffee & Teas", "price_paise": 6900, "emoji": "🍫", "art": "coffee", "type": "Hot drink"},
-    {"id": "menu-garam-kadak-chai", "name": "Garam Kadak Chai", "category": "Hot Coffee & Teas", "price_paise": 2000, "emoji": "🫖", "art": "tea", "type": "Chai"},
+    {"id": "menu-garam-chai", "name": "Garam Chai", "category": "Hot Coffee & Teas", "price_paise": 2000, "emoji": "🫖", "art": "tea", "type": "Chai"},
     {"id": "menu-kullad-chai", "name": "Kullad Chai", "category": "Hot Coffee & Teas", "price_paise": 2900, "emoji": "🫖", "art": "tea", "type": "Chai"},
     {"id": "menu-green-tea", "name": "Green Tea", "category": "Hot Coffee & Teas", "price_paise": 2900, "emoji": "🍵", "art": "tea", "type": "Tea"},
     {"id": "menu-regular-cold-coffee", "name": "Regular Cold Coffee", "category": "Cold Coffee & Shakes", "price_paise": 6900, "emoji": "🧋", "art": "cold", "type": "Cold coffee"},
@@ -79,32 +79,38 @@ DEFAULT_MENU = [
     {"id": "menu-mocha-cold-coffee", "name": "Mocha Cold Coffee", "category": "Cold Coffee & Shakes", "price_paise": 7900, "emoji": "🧋", "art": "cold", "type": "Cold coffee"},
     {"id": "menu-caramel-cold-coffee", "name": "Caramel Cold Coffee", "category": "Cold Coffee & Shakes", "price_paise": 7900, "emoji": "🧋", "art": "cold", "type": "Cold coffee"},
     {"id": "menu-hazelnut-cold-coffee", "name": "Hazelnut Cold Coffee", "category": "Cold Coffee & Shakes", "price_paise": 7900, "emoji": "🧋", "art": "cold", "type": "Cold coffee"},
-    {"id": "menu-cold-chocolate-shake", "name": "Cold Chocolate Shake", "category": "Cold Coffee & Shakes", "price_paise": 11900, "emoji": "🥤", "art": "cold", "type": "Chocolate shake"},
+    {"id": "menu-chocolate-shake", "name": "Chocolate Shake", "category": "Cold Coffee & Shakes", "price_paise": 10900, "emoji": "🥤", "art": "cold", "type": "Chocolate shake"},
     {"id": "menu-mint-mojito", "name": "Mint Mojito", "category": "Mojitos & Refreshers", "price_paise": 6900, "emoji": "🍃", "art": "cold", "type": "Mojito"},
     {"id": "menu-strawberry-mojito", "name": "Strawberry Mojito", "category": "Mojitos & Refreshers", "price_paise": 7900, "emoji": "🍓", "art": "cold", "type": "Mojito"},
     {"id": "menu-watermelon-mojito", "name": "Watermelon Mojito", "category": "Mojitos & Refreshers", "price_paise": 7900, "emoji": "🍉", "art": "cold", "type": "Mojito"},
     {"id": "menu-blueberry-mojito", "name": "Blueberry Mojito", "category": "Mojitos & Refreshers", "price_paise": 7900, "emoji": "🫐", "art": "cold", "type": "Mojito"},
     {"id": "menu-lemon-iced-tea", "name": "Lemon Iced Tea", "category": "Mojitos & Refreshers", "price_paise": 6900, "emoji": "🍋", "art": "cold", "type": "Iced tea"},
     {"id": "menu-peach-iced-tea", "name": "Peach Iced Tea", "category": "Mojitos & Refreshers", "price_paise": 6900, "emoji": "🍑", "art": "cold", "type": "Iced tea"},
-    {"id": "menu-classic-bun-maska", "name": "Classic Bun Maska", "category": "Burgers & Buns", "price_paise": 4900, "emoji": "🍞", "art": "food", "type": "Bun"},
-    {"id": "menu-aloo-tikki-burger-m", "name": "Classic Aloo Tikki Burger (M)", "category": "Burgers & Buns", "price_paise": 6900, "emoji": "🍔", "art": "food", "type": "Medium"},
-    {"id": "menu-aloo-tikki-burger-l", "name": "Classic Aloo Tikki Burger (L)", "category": "Burgers & Buns", "price_paise": 8900, "emoji": "🍔", "art": "food", "type": "Large"},
-    {"id": "menu-chicken-burger-m", "name": "Classic Chicken Burger (M)", "category": "Burgers & Buns", "price_paise": 8900, "emoji": "🍔", "art": "food", "type": "Medium"},
-    {"id": "menu-chicken-burger-l", "name": "Classic Chicken Burger (L)", "category": "Burgers & Buns", "price_paise": 10900, "emoji": "🍔", "art": "food", "type": "Large"},
+    {"id": "menu-bun-maska", "name": "Bun Maska", "category": "Burgers & Buns", "price_paise": 4900, "emoji": "🍞", "art": "food", "type": "Bun"},
+    {"id": "menu-aloo-tikki-burger-m", "name": "Classic Aloo Tikki Burger (M)", "category": "Burgers & Buns", "price_paise": 7900, "emoji": "🍔", "art": "food", "type": "Medium"},
+    {"id": "menu-aloo-tikki-burger-l", "name": "Classic Aloo Tikki Burger (L)", "category": "Burgers & Buns", "price_paise": 9900, "emoji": "🍔", "art": "food", "type": "Large"},
+    {"id": "menu-chicken-burger-m", "name": "Classic Chicken Tikki Burger (M)", "category": "Burgers & Buns", "price_paise": 9900, "emoji": "🍔", "art": "food", "type": "Medium"},
+    {"id": "menu-chicken-burger-l", "name": "Classic Chicken Tikki Burger (L)", "category": "Burgers & Buns", "price_paise": 10900, "emoji": "🍔", "art": "food", "type": "Large"},
     {"id": "menu-sabudana-tikki-burger", "name": "Sabudana Tikki Burger", "category": "Burgers & Buns", "price_paise": 6900, "emoji": "🍔", "art": "food", "type": "Burger"},
     {"id": "menu-butter-garlic-bread", "name": "Butter Garlic Bread", "category": "Burgers & Buns", "price_paise": 6900, "emoji": "🥖", "art": "food", "type": "Garlic bread"},
     {"id": "menu-cheese-garlic-bread", "name": "Cheese Garlic Bread", "category": "Burgers & Buns", "price_paise": 8900, "emoji": "🥖", "art": "food", "type": "Garlic bread"},
+    {"id": "menu-pizza-margherita", "name": "Margherita Pizza", "category": "Pizzas", "price_paise": 9900, "emoji": "🍕", "art": "food", "type": "Pizza"},
+    {"id": "menu-pizza-veggie-loaded", "name": "Veggie Loaded Pizza", "category": "Pizzas", "price_paise": 12900, "emoji": "🍕", "art": "food", "type": "Pizza"},
+    {"id": "menu-pizza-paneer", "name": "Paneer Pizza", "category": "Pizzas", "price_paise": 13900, "emoji": "🍕", "art": "food", "type": "Pizza"},
+    {"id": "menu-pizza-chicken", "name": "Chicken Pizza", "category": "Pizzas", "price_paise": 15900, "emoji": "🍕", "art": "food", "type": "Pizza"},
     {"id": "menu-grilled-veg-sandwich", "name": "Grilled Veg Sandwich", "category": "Grilled Sandwiches", "price_paise": 8900, "emoji": "🥪", "art": "food", "type": "Sandwich"},
     {"id": "menu-grilled-cheese-sandwich", "name": "Grilled Cheese Sandwich", "category": "Grilled Sandwiches", "price_paise": 9900, "emoji": "🥪", "art": "food", "type": "Sandwich"},
+    {"id": "menu-grilled-paneer-sandwich", "name": "Grilled Paneer Sandwich", "category": "Grilled Sandwiches", "price_paise": 11900, "emoji": "🥪", "art": "food", "type": "Sandwich"},
     {"id": "menu-grilled-chicken-sandwich", "name": "Grilled Chicken Sandwich", "category": "Grilled Sandwiches", "price_paise": 12900, "emoji": "🥪", "art": "food", "type": "Sandwich"},
-    {"id": "menu-plain-crispy-fries", "name": "Plain Crispy Fries", "category": "Fries & Quick Bites", "price_paise": 5900, "emoji": "🍟", "art": "food", "type": "Fries"},
-    {"id": "menu-salted-french-fries", "name": "Salted French Fries", "category": "Fries & Quick Bites", "price_paise": 6900, "emoji": "🍟", "art": "food", "type": "Fries"},
-    {"id": "menu-peri-peri-fries", "name": "Peri Peri Fries", "category": "Fries & Quick Bites", "price_paise": 6900, "emoji": "🍟", "art": "food", "type": "Fries"},
+    {"id": "menu-crispy-french-fries", "name": "Crispy French Fries", "category": "Fries & Quick Bites", "price_paise": 6900, "emoji": "🍟", "art": "food", "type": "Fries"},
+    {"id": "menu-peri-peri-fries", "name": "Peri Peri Fries", "category": "Fries & Quick Bites", "price_paise": 7900, "emoji": "🍟", "art": "food", "type": "Fries"},
+    {"id": "menu-cigar-roll", "name": "Cigar Roll (5pcs)", "category": "Fries & Quick Bites", "price_paise": 9900, "emoji": "🌯", "art": "food", "type": "5 pieces"},
+    {"id": "menu-spring-roll", "name": "Spring Roll", "category": "Fries & Quick Bites", "price_paise": 9900, "emoji": "🥟", "art": "food", "type": "Roll"},
     {"id": "menu-crispy-veg-nuggets", "name": "Crispy Veg Nuggets (8pcs)", "category": "Fries & Quick Bites", "price_paise": 9900, "emoji": "🍟", "art": "food", "type": "8 pieces"},
     {"id": "menu-crispy-chicken-nuggets", "name": "Crispy Chicken Nuggets (8pcs)", "category": "Fries & Quick Bites", "price_paise": 11900, "emoji": "🍗", "art": "food", "type": "8 pieces"},
     {"id": "menu-plain-maggi", "name": "Plain Maggi", "category": "Maggi Corner", "price_paise": 4900, "emoji": "🍜", "art": "food", "type": "Maggi"},
     {"id": "menu-veg-masala-maggi", "name": "Veg Masala Maggi", "category": "Maggi Corner", "price_paise": 6900, "emoji": "🍜", "art": "food", "type": "Maggi"},
-    {"id": "menu-cheese-burst-maggi", "name": "Cheese Burst Maggi", "category": "Maggi Corner", "price_paise": 7900, "emoji": "🍜", "art": "food", "type": "Maggi"},
+    {"id": "menu-cheese-maggi", "name": "Cheese Maggi", "category": "Maggi Corner", "price_paise": 7900, "emoji": "🍜", "art": "food", "type": "Maggi"},
 ]
 LEGACY_MENU_IDS = (
     "cappuccino", "latte", "americano", "mocha", "iced-latte", "cold-brew",
@@ -213,8 +219,9 @@ def initialize_db():
             );
             """
         )
-        if connection.execute("SELECT 1 FROM app_migrations WHERE id = 'brew-crave-pdf-menu-v1'").fetchone() is None:
+        if connection.execute("SELECT 1 FROM app_migrations WHERE id = 'brew-crave-pdf-menu-v2'").fetchone() is None:
             now = datetime.now(timezone.utc).isoformat()
+            connection.execute("DELETE FROM products WHERE id LIKE 'menu-%'")
             connection.executemany("DELETE FROM products WHERE id = ?", [(item_id,) for item_id in LEGACY_MENU_IDS])
             connection.executemany(
                 "INSERT INTO products (id, name, category, price_paise, emoji, art, type, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
@@ -224,7 +231,7 @@ def initialize_db():
                 ],
             )
             connection.execute(
-                "INSERT INTO app_migrations (id, applied_at) VALUES ('brew-crave-pdf-menu-v1', ?)",
+                "INSERT INTO app_migrations (id, applied_at) VALUES ('brew-crave-pdf-menu-v2', ?)",
                 (now,),
             )
 

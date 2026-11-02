@@ -10,7 +10,7 @@ The browser cannot attach or send a file through a WhatsApp chat link automatica
 
 ## Cafe menu
 
-The starter catalog contains the 40 items and prices from the supplied Brew & Crave Cafe menu PDF. On deployment, a one-time database migration replaces the original demo products with this catalog while keeping owner/staff accounts, existing bills, and custom products.
+The starter catalog contains the 46 items and prices from the latest supplied Brew & Crave Cafe menu PDF. On deployment, a one-time database migration replaces the previous catalog (menu items and old demo products) with this one while keeping owner/staff accounts, existing bills, and custom products.
 
 ## Run locally
 
