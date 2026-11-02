@@ -8,6 +8,10 @@ After completing a bill, select **Send bill on WhatsApp**, enter the customer's 
 
 The browser cannot attach or send a file through a WhatsApp chat link automatically; automatic delivery requires WhatsApp Business Cloud API credentials, customer opt-in, and the required business setup.
 
+## Cafe menu
+
+The starter catalog contains the 40 items and prices from the supplied Brew & Crave Cafe menu PDF. On deployment, a one-time database migration replaces the original demo products with this catalog while keeping owner/staff accounts, existing bills, and custom products.
+
 ## Run locally
 
 1. Install Python 3.9 or newer.
