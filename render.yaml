@@ -8,7 +8,7 @@ services:
     healthCheckPath: /api/clock
     envVars:
       - key: CAFE_ALLOWED_ORIGINS
-        value: https://cafebillingsystem.netlify.app
+        value: https://cafebillingsystem.netlify.app,https://brew-crave-api.onrender.com
       - key: CAFE_COOKIE_SECURE
         value: "true"
       - key: CAFE_COOKIE_SAMESITE
